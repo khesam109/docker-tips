@@ -1,0 +1,16 @@
+*** Common Commands for Posgres Database Scenario ***
+
+* Pull the image with the latest tag-Debian@Based(https://hub.docker.com/_/postgres):
+	docker pull postgres
+Note: the mentioned image is Debian base, you can pull Alpine based image (results in a smaller container than the full postgres image) by issuing alpine tag
+
+* Running postgres(example is used for more clarity):
+	docker run --name learning_db -e POSTGRES_USER=postgres -e POSTGRES_PASSWORD=admin -p 5432:5432 -v /d/Software/postgresql:/var/lib/postgresql/data -d postgres
+
+* Access Postgres in which you can execute query(first approach):
+	docker exec -it learning_db psql -U postgres
+
+* Access Postgres in which you can execute query(second approach):
+	docker exec -it learning_db bash
+	su postgres
+	psql
